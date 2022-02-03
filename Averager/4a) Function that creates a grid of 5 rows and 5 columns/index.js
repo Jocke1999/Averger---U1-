@@ -9,11 +9,26 @@ in your JS-file from the console. Check the video.
 
 */
 
-function testConsole (p1) {
+function testConsole(p1) {
   document.querySelector("body").style.backgroundColor = p1;
 }
 
+function F25(container) {
 
+  for (let i = 0; i < 25; i++) {
+    let gridContainer = document.querySelector(container);
+    let div = document.createElement("div");
+    div.innerHTML = Math.floor(Math.random() * 25);
+
+    gridContainer.appendChild(div);
+
+
+  }
+
+
+}
+
+F25("#gridContainer");
 /*
 
 Exercise
