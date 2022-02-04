@@ -15,4 +15,16 @@ We now need to make sure that when we call (anropar) gridMaker we must use
 the values in #inputRows and #inputColumns as arguments.
 
 */
+function gridMaker(gridContainer, R, C) {
+    gridContainer.style.height = "50vh";
+    gridContainer.style.width = "50vh";
+    gridContainer.style.display = "grid";
+    gridContainer.style.gridTemplateColumns = `repeat(${C}, 1fr)`;
+    gridContainer.style.gridTemplateRows = `repeat(${R}, 1fr)`;
 
+    document.querySelector("button").addEventListener("click", function () {
+        gridMaker(document.querySelector("#grid"), document.querySelector("#inputRows").value, document - this.querySelector("#inputCols").value);
+
+    })
+
+}
