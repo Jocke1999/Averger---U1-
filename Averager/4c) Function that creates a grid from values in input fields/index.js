@@ -23,7 +23,7 @@ function gridMaker(gridContainer, R, C) {
     gridContainer.style.gridTemplateRows = `repeat(${R}, 1fr)`;
 
     document.querySelector("button").addEventListener("click", function () {
-        gridMaker(document.querySelector("#grid"), document.querySelector("#inputRows").value, document - this.querySelector("#inputCols").value);
+        gridMaker(document.querySelector("#grid"), document.querySelector("#inputRows").value, document.querySelector("#inputCols").value);
 
     })
 
