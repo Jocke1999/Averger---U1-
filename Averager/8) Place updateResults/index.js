@@ -22,6 +22,8 @@ VIDEO:  Record a video where you explain where you have placed all the lines
         required to update the results, and why.
         This video must be called placementExplanation
 
+        UpdateResult i video: Detta görs för att selected , N , Sum och Average ska få ett värde när man klickar på de olika i gridden. 
+
 
 
 */
@@ -47,7 +49,7 @@ The function getArrayOfSelectedNumbers does the following:
 
 */
 
-function getArrayOfSelectedNumbers (className) {
+function getArrayOfSelectedNumbers(className) {
 
   // This weird line creates an array with all the numberDivs that have the 
   // class className. Naturally, when you call this function, you will need 
@@ -71,7 +73,34 @@ function getArrayOfSelectedNumbers (className) {
   return arrayNumbers;
 
 }
+function adder(_array) {
+  let sum = 0;
+  for (let i = 0; i < _array.length; i++) {
+    sum = sum + _array[i];
+  }
+  return sum;
+}
+function averg(_array) {
+  return adder(_array) / _array.length;
+}
 
+function updateResults(className) {
+
+  let array = getArrayOfSelectedNumbers(className);
+
+  let selected = array.join(",");
+
+  let amount = array.length;
+  let sum = adder(array);
+  let average = roundString(averg(array), 1);
+
+
+  document.querySelector("#selected span").innerHTML = selected;
+  document.querySelector("#amount span").innerHTML = amount;
+  document.querySelector("#sum span").innerHTML = sum;
+  document.querySelector("#average span").innerHTML = average;
+
+}
 
 /*
 
@@ -151,9 +180,53 @@ below to always show a number that has one decimal.
 
 */
 
-function roundString(numberWithManyDecimals, decimals){
+function roundString(numberWithManyDecimals, decimals) {
   // From: https://stackoverflow.com/a/12698296/2027283
   var rounded = Math.pow(10, decimals);
   return (Math.round(numberWithManyDecimals * rounded) / rounded).toFixed(decimals);
 }
 
+document.onload = gridMaker(document.querySelector("#grid"), document.querySelector("#inputRows").value, document.querySelector("#inputCols").value);
+window.onload = gridMaker(document.querySelector("#grid"), document.querySelector("#inputRows").value, document.querySelector("#inputCols").value);
+
+function createNumberDiv() {
+
+  let numberDiv = document.createElement("div");
+  numberDiv.innerHTML = randomNumber(100);
+
+  numberDiv.addEventListener("click", function () {
+
+    numberDiv.classList.toggle("selected");
+
+    numberDiv.addEventListener("click", updateResults("selected"));
+  });
+
+
+
+  return numberDiv;
+
+}
+
+function gridMaker(gridContainer, R, C) {
+  gridContainer.style.gridTemplateRows = `repeat(${R}, 1fr)`;
+  gridContainer.style.gridTemplateColumns = `repeat(${C}, 1fr)`
+
+  gridContainer.innerHTML = "";
+
+  let rowCol = R * C
+  for (let i = 0; i < rowCol; i++) {
+    gridContainer.appendChild(createNumberDiv())
+  };
+}
+
+
+function randomNumber(max) {
+  return Math.floor(max * Math.random());
+}
+
+document.querySelector("button").addEventListener("click", function () {
+
+  gridMaker(document.querySelector("#grid"), 10, 10);
+
+
+});
