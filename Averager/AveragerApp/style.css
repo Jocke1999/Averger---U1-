@@ -1,4 +1,5 @@
 body {
+  background-color: beige;
     margin: 0px;
     height: 100vh;
     display: flex;
@@ -30,7 +31,7 @@ body {
     flex-grow: 1;
     display: grid;
     gap: 1vh;
-  
+    
     border: 1px solid grey;
   
     font: 25px "Supermercado One";
@@ -40,16 +41,30 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-  
-    background-color: grey;
+    transition: 0.5s;
+    background-color: yellowgreen;
   }
   
   #grid > div.selected {
-    background-color: aqua;
+    background-color: hotpink;
     color: navy;
+    transition: 0.5s;
+    background-image: url(/Users/joakimfrojvallbejram/Desktop/Averger---U1-/Averager/AveragerApp/1600016_dae53.gif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-size: 100%;
   }
   
   #grid > div:hover {
     cursor: pointer;
     box-shadow: 0 0 10px black;
   }
+
+  button{
+    border: solid hotpink 2px;
+  }
+
+  
