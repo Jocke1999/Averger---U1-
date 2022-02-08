@@ -56,10 +56,12 @@ adder([5, 2, 1, 7]) should return 15
 adder([1]) should return 1
 adder([0]) should return 0
 
-itterera
+itterera en loop, adder plussar ihop siffror
 
 VIDEO:  Make a video where you explain how adder works line by line. Max 3 minutes.
         This video must be called adderExplanation.
+
+
 
 */
 
