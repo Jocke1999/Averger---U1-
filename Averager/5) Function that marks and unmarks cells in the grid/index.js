@@ -12,11 +12,58 @@ from the grid by clicking on them.
 */
 
 
+
+function createNumberDiv() {
+
+
+    let numberDiv = document.createElement("div");
+    numberDiv.innerHTML = randomNumber(100);
+
+    numberDiv.addEventListener("click", function () {
+
+        numberDiv.classList.toggle("selected")
+    })
+
+
+
+    return numberDiv;
+
+
+}
+
+function gridMaker(gridContainer, R, C) {
+    gridContainer.style.gridTemplateRows = `repeat(${R}, 1fr)`;
+    gridContainer.style.gridTemplateColumns = `repeat(${C}, 1fr)`
+
+    gridContainer.innerHTML = "";
+
+    let rowCol = R * C
+    for (let i = 0; i < rowCol; i++) {
+        gridContainer.appendChild(createNumberDiv())
+    };
+}
+
+
+
+function randomNumber(max) {
+    return Math.floor(max * Math.random());
+}
+
+document.querySelector("button").addEventListener("click", function () {
+
+    gridMaker(document.querySelector("#grid"), 10, 10);
+
+
+
+
+});
+
+
 /*
 
 STEP 1
 The first thing we need is a CSS-class called selected.
-Add CSS-rules for .selected to the CSS-file. A change of 
+Add CSS-rules for .selected to the CSS-file. A change of
 background-color and color is enough but feel free!
 
 */
