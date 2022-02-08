@@ -14,26 +14,26 @@ adder_three([2, 1, -2]) should return 1
 */
 
 let a1 = [1, 2, 3];
-console.log( adder_three( a1 ) ); // this logs 6 since 1 + 2 + 3 is 6
+console.log(adder_three(a1)); // this logs 6 since 1 + 2 + 3 is 6
 
-function adder_three ( _array ) {
+function adder_three(_array) {
   let sum = 0;
-  for ( let i = 0; i < 3; i++ ) { 
+  for (let i = 0; i < 3; i++) {
     sum = sum + _array[i];
   }
   return sum;
 }
 
 
-function adder_two ( _array ) {
+function adder_two(_array) {
   let sum = 0;
-  for (let i = 0 ; i < _array.length; i++ ) { 
+  for (let i = 0; i < _array.length; i++) {
     sum = sum + _array[i];
   }
   return sum;
 }
 
-console.log (adder_two([5, 2, 1, 7]));
+console.log(adder_two([5, 2, 1, 7]));
 
 /*
 
@@ -56,6 +56,7 @@ adder([5, 2, 1, 7]) should return 15
 adder([1]) should return 1
 adder([0]) should return 0
 
+itterera
 
 VIDEO:  Make a video where you explain how adder works line by line. Max 3 minutes.
         This video must be called adderExplanation.
